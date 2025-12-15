@@ -1,0 +1,58 @@
+<%- include("partials/header.ejs")%>
+<% if(locals.movieData){%>
+    <%movieData.forEach((i)=>{%>
+<div class = "mainContainer"> 
+    <div class = "containera">
+<img
+  class="mainImage"
+  src="<%= i.poster_path ? ('https://image.tmdb.org/t/p/w500' + i.poster_path) : '/images/fallback_poster.png' %>"
+  alt="<%= i.title %> movie poster"
+/>
+
+<% if (locals.session && session.loggedIn) { %>
+  <div class="buttonBox">
+    <form action="/editForm" method="POST">
+      <input type="hidden" name="movieId" value="<%= i.tmdb_id %>">
+      <button class="buttons"><span class="material-symbols-outlined editIcon">edit</span></button>
+    </form>
+    <button class="buttons" onclick="openModal('<%= i.tmdb_id %>')"><span class="material-symbols-outlined deleteIcon">delete</span></button>
+  </div>
+<% } %>  
+    </div> 
+    <div class = "containerb">
+        <h1><%=i.title%> <span>(<%=i.year%>)</span></h1>
+        <p><strong>Genre: </strong><%=i.genre%></p>
+        <p><strong>Language: </strong><%=i.language_name%></p>
+        <p><strong>Director: </strong><%=i.directorname%></p>       
+        <p class = "review-text" id= "review-<%= i.id %>"><strong>My thoughts: </strong><%=i.my_thoughts%></p>
+        <button type="button" class="read-more-btn" onclick="toggleReview('<%= i.id %>')">Read more</button>
+        <p class = "rating" ><strong>Rating: </strong>
+            <%for(let star=1; star<=5; star++) {%>
+                <%if(star<= i.my_rating){%>
+                   <span class="starFilled">★</span>
+                <%} else {%>
+                  <span class="starEmpty">☆</span>
+                <%}%>
+            <%}%>
+        </p>
+    </div>
+</div>
+  <hr>
+    <%});%>
+
+<%}%>
+
+<div id="errorModal" class="modal-overlay" style = "display:none">
+  <div class="modalBox">
+    <p><%=errorMessage%></p>
+    <button class = "cancelBtn" onclick="closeErrorModal()">OK</button>
+  </div>
+</div>
+
+<%- include("partials/footer.ejs")%>
+<%if(locals.errorMessage){%>
+    <script>
+       openErrorModal();
+    </script>
+<%}%>
+

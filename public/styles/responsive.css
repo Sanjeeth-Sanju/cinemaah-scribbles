@@ -1,0 +1,245 @@
+/* RESOPONSIVENESS */
+
+@media (max-width: 1024px){
+    /* Header CSS */
+    .headerContainer{
+        flex-direction: column;
+        gap: 30px;
+    }
+    .headerTitle h1 {
+        text-align: center;
+    }
+    .headerOthers{
+        gap: 25px;
+    }
+    .headerTitle p{
+        text-align: center;
+    }
+
+    /* Movie list page CSS */
+
+    .container{
+    grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    /* New post page & Edit post page CSS */
+
+    .thoughtBox h1{
+        font-size: 20px;
+    }
+    .textarea{
+        max-width: 430px;
+        font-size: 16px;
+    }
+    .newImage{
+      margin-top: 20px;
+    }
+    
+
+}
+
+@media (max-width: 768px){
+
+    /* Header CSS */
+    .headerContainer{
+        flex-direction: column;
+        gap: 30px;
+    }
+    .headerTitle h1 {
+        text-align: center;
+    }
+    .headerOthers{
+        gap: 25px;
+    }
+    .headerTitle p{
+        text-align: center;
+    }
+    .dropDown {
+        font-size: 10px;
+    }
+    .searchBar{
+       width: 120px;
+       max-height: 25px;
+       font-size: 10px;
+    }
+    .adminButton{
+        font-size: 10px;
+    }
+    /*Home page CSS */
+
+    .mainContainer{
+        flex-direction: column;
+    }
+    .mainImage{
+     height: 250px;
+     width: 179px;
+    }
+    .containerb{
+        padding-left: 0px;
+   }
+    .mainImage{
+        margin-left: 10px;
+    }
+    .containerb h1{
+        font-size: 30px;
+    }
+    .containerb p{
+        font-size: 15px;
+    }
+    .containerb p strong{
+        font-size: 15px;
+    }
+    /* Movie list page CSS */
+    .image{
+     height: 250px;
+     width: 150px;        
+    }
+    .moviesh3{
+        font-size: 15px;
+        max-width: 150px; 
+    }
+
+    /* New post page & Edit post page CSS */
+
+    .thoughtContainer{
+        flex-direction: column;
+        gap: 30px;
+    }
+    .thoughtBox h1{
+        font-size: 18px;
+    }
+    .textarea{
+        max-width: 400px;
+        min-height: 100px;
+        font-size: 12px;
+    }
+    .star-rating label{
+    font-size: 15px;
+    }
+    .star-rating input:checked ~ label{ 
+    font-size: 20px;
+}
+    .newImage{
+      margin-top: 20px;
+      height: 250px;
+      width: 150px;  
+    }
+    .submitButton{
+     font-size: 12px;
+    }
+}
+
+
+
+
+@media (max-width: 480px){
+
+    /* Header CSS */
+    .headerContainer{
+        flex-direction: column;
+        gap: 30px;
+    }
+    .headerTitle h1 {
+        font-size: 25px;
+        text-align: center;
+    }
+    .headerOthers{
+ 
+        gap: 10px;
+    }
+    .headerTitle p{
+        text-align: center;
+        font-size: 10px;
+    }
+    .dropDown {
+        font-size: 8px;
+    }
+    .searchBar{
+       width: 100px;
+       max-height: 25px;
+       font-size: 8px;
+    }
+    .adminButton{
+        font-size: 8px;
+        align-self:first baseline;
+    }
+
+    /*Home page CSS */
+
+    .mainContainer{
+        flex-direction: column;
+    }
+    .mainImage{
+     height: 200px;
+     width: 143px;
+    }
+    .containerb{
+        padding-left: 0px;
+   }
+    .mainImage{
+        margin-left: 10px;
+    }
+    .containerb h1{
+        font-size: 20px;
+    }
+    .containerb p{
+        font-size: 12px;
+    }
+    .containerb p strong{
+        font-size: 12px;
+    }
+
+    /* Movie list page CSS */
+    .image{
+     height: 200px;
+     width: 133px;        
+    }
+    .moviesh3{
+        font-size: 13px;
+        max-width: 133px; 
+    }
+    .container{
+    grid-template-columns: 1fr 1fr ;
+    }
+    
+    /* New post page & Edit post page CSS */
+
+    .thoughtBox h1{
+        font-size: 15px;
+    }
+    .textarea{
+        max-width: 250px;
+        font-size: 10px;
+    }
+    .newImage{
+      margin-top: 20px;
+      height: 200px;
+      width: 133px;  
+    }
+    .star-rating label{
+    font-size: 15px;
+    }
+    .star-rating input:checked ~ label{ 
+    font-size: 20px;
+    }
+    .submitButton{
+    font-size: 12px;
+    }
+
+    /* others */
+    .modalBox{
+          max-width: 300px;
+    }
+    .cancelBtn{
+        font-size: 10px;
+    }
+    .deleteBtn{
+      font-size: 10px;
+    }
+    .login-box{
+        max-width: 300px;
+    }
+}
+
+
+

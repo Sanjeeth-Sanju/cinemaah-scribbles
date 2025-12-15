@@ -1,0 +1,483 @@
+body{
+    background-color: white;
+}
+
+/* HEADER CSS */
+
+.headerContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+}
+.headerTitle h1 {
+    font-family: "Bebas Neue";
+    font-size: 40px;
+    margin: 0;
+    color: #d4a017;
+    letter-spacing: 1px;
+}
+
+.headerTitle p {
+    margin: 0;
+    font-family: "Varela Round";
+    color: #777;
+    font-size: 14px;
+}
+.headerOthers{
+    display: flex;
+    gap: 20px;
+}
+.dropDownBox{
+    display: flex;
+    gap: 10px;
+}
+.dropDown {
+    padding: 8px 10px;
+    border-radius: 8px; 
+    border: 1px solid #bbb;
+    font-family: "Lexend Exa";
+    cursor: pointer;
+    color: #8f8f8f;
+}
+.searchBar {
+    width: 150px;
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1px solid #aaa;
+    font-family: "Lexend Exa";
+    transition: all 0.35s ease; 
+    opacity: 1;
+    max-height: 40px;
+}
+.adminButton{
+    display: inline-block;
+    padding: 10px 22px;
+    background-color: #BBCB64;
+    color: white;
+    font-family: "Lexend Exa";
+    font-size: 14px;
+    border-radius: 25px;
+    text-decoration: none;  
+    text-align: center;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+
+}
+.adminButton:hover{
+    background-color: #959B73;
+    transform: scale(1.08);
+    
+}
+hr {
+    width: 95%;
+    margin: 20px auto;
+    border: none;
+    border-top: 1px solid #ddd;
+}
+
+/* HOME PAGE CSS */
+
+.mainContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 30px 20px;
+    margin-left: 50px;
+}
+.containera{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+}
+.mainImage{
+    margin-bottom: 10px;
+    height: 350px;
+    width: 250px;
+    border-radius: 20px;
+}
+.buttonBox{
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+.buttons{
+    border: 0px;
+    background: transparent;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.buttons:hover{
+    transform: scale(1.08);
+}
+.containerb{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    text-align: left;
+    padding-left: 20px;
+}
+.containerb > *{
+    margin: 5px 10px;
+}
+
+.containerb h1{
+    font-family: "Bebas Neue";
+    font-size: 35px;
+    color: #ED985F;
+
+}
+.containerb p{
+    font-family: "Amarna";
+}
+.containerb p strong{
+    font-family: "Lexend Exa";
+    color: #88AB8E;
+}
+.containerb h1 span{
+    font-family: "Varela Round";
+    font-size: 15px;
+}
+.read-more-btn {
+  margin-top: 4px;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: lightgray;          
+  font-weight: 600;
+}
+.rating{
+    font-size: 15px;
+}
+.starFilled{
+     color: #d4a017;
+} 
+.starEmpty{
+     color: lightgray;
+} 
+.modal-overlay{
+    position:fixed;
+    top:0px;
+    left:0px;
+    width: 100%;
+    height: 100%;    
+    background: rgba(0,0,0,0.6);
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.modalBox{
+  background: white;
+  padding: 35px 25px;
+  border: 0.3px solid black;
+  border-radius: 20px;
+  text-align: center;
+  width: 85%;
+  max-width: 380px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+.modalBox h3{
+    margin: 0 0 12px 0;
+    font-family:  "Bebas Neue";
+    color: #FF5555;
+    font-size: 30px;
+    letter-spacing: 1px;
+}
+.modalBox p{
+    margin: 0 0 30px 0;
+    font-family: "Varela Round";
+    font-size: 15px;
+    color: #444;
+}
+.cancelBtn{
+     font-family:  "Lexend Exa";
+     font-size: 15px;
+     border-radius: 25px;
+     border: none;
+     cursor: pointer;
+     padding: 13px 35px;
+     font-weight: 500;
+     color: white;
+     min-width: 120px;
+     transition: transform 0.3s ease, background-color 0.3s ease;
+}
+.cancelBtn{
+    background-color: #aaaaaa;
+}
+.cancelBtn:hover{
+     background-color: #999999;
+     transform: scale(1.08);
+}
+.deleteIcon{
+    color: red;
+}
+.review-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;   
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.5;
+}
+.review-text.expanded {
+  -webkit-line-clamp: unset;
+}
+
+/* MOVIE LIST PAGE CSS */
+
+.container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    justify-items: center
+}
+.moviesh3{
+    font-family: "Roboto Condensed";
+    font-size: 20px;
+    color: #ED985F;
+    text-align: start;
+    margin-left: 10px;
+    max-width: 200px;                 
+    display: -webkit-box;
+    -webkit-line-clamp: 1;            
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.movieCard{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.imageButton{
+    border: none;
+    background: none;
+}
+.image{
+    height: 300px;
+    width: 200px;
+    border-radius: 20px;
+    transition: 0.3s ease;
+}
+.image:hover{
+    transform: scale(1.08);
+}
+
+/* NEW POST PAGE and EDIT PAGE CSS */
+
+.mainThoughtBox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+.thoughtContainer{
+    display: flex;
+    gap: 60px;
+    margin-bottom: 20px;
+}
+.newImage{
+    height: 300px;
+    width: 200px;
+    border-radius: 20px;
+    transition: 0.3s ease;
+    margin-top: 30px;
+}
+.thoughtBox h1{
+    font-size: 25px;
+    font-family: "Lexend Exa";
+}
+.textarea{
+    width: 100%;
+    height: 200px;
+    border: 2px solid lightgray;
+    border-radius: 12px;
+    font-family: "Amarna";
+    resize: vertical;
+    font-size: 20px;
+    padding: 16px;
+    min-height: 180px;
+    max-height: 400px;
+    max-width: 550px;
+}
+.star-rating{
+    direction: rtl;
+    display: inline-flex;
+    gap: 5px;
+}
+
+.star-rating input:checked ~ label{ 
+    color: #d4a017;
+    font-size: 30px;
+}
+.star-rating input{
+    display: none;
+}
+.star-rating label{
+    font-size: 20px;
+    cursor: pointer;
+    color: lightgray;
+    transition: 0.2s;
+}
+
+.submitButton{
+     font-family:  "Lexend Exa";
+     border: 0px solid black;
+     font-size: 15px;
+     border-radius: 20px;
+     padding: 10px;
+     background-color: #88AB8E;
+     color: white;
+     transition: 0.3s ease;
+}
+
+.submitButton:hover{
+     transform: scale(1.08);
+}
+
+/* LOGIN PAGE CSS */
+
+.loginBody{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 95vh;
+}
+.login-box{
+  background: white;
+  padding: 35px 25px;
+  border-radius: 20px;
+  text-align: center;
+  width: 85%;
+  max-width: 380px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);   
+}
+.loginBtn, .backBtn{
+     font-family:  "Lexend Exa";
+     font-size: 15px;
+     border-radius: 25px;
+     border: none;
+     cursor: pointer;
+     padding: 13px 35px;
+     font-weight: 500;
+     color: white;
+     min-width: 120px;
+     transition: transform 0.3s ease, background-color 0.3s ease;
+}
+.backBtn{
+    background-color: #aaaaaa;
+}
+.loginBtn{
+    background-color: #FF5555;
+}
+.loginBtn:hover{
+    background-color: #e04848;
+     transform: scale(1.08);
+}
+.backBtn:hover{
+     background-color: #999999;
+     transform: scale(1.08);
+}
+.loginBtnBox{
+    display: flex;
+    justify-content: space-evenly;
+}
+.loginh{
+    font-family: "Bebas Neue";
+    font-size: 50px;
+    margin: 0;
+    color: #d4a017;
+    letter-spacing: 3px;
+}
+.loginInputBox{ 
+    width: 150px;
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1px solid #aaa;
+    font-family: "Lexend Exa";
+    transition: all 0.35s ease; 
+    opacity: 1;
+    max-height: 40px;
+    margin: 20px 0px;
+}
+.errorMessage{
+    margin: 30px 0 0 0;
+    font-family: "Varela Round";
+    font-size: 15px;
+    color: black;
+}
+
+/* FOOTER */
+
+.deleteBtn{
+     font-family:  "Lexend Exa";
+     font-size: 15px;
+     border-radius: 25px;
+     border: none;
+     cursor: pointer;
+     padding: 13px 35px;
+     font-weight: 500;
+     color: white;
+     min-width: 120px;
+     transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.deleteBtn{
+    background-color: #FF5555;
+}
+.deleteBtn:hover{
+    background-color: #e04848;
+     transform: scale(1.08);
+}
+.footer {
+  margin-top: 80px;
+  padding: 30px 0;
+  text-align: center;
+  font-family: "Lexend Exa", sans-serif;
+  font-size: 14px;
+  color: #777;
+}
+
+.footer p {
+  margin: 6px 0;
+}
+.modalButtons{
+    display:flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+.footer-icons {
+  margin-top: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.footer a {
+  color: #777;
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.footer a:hover {
+  color: #ED985F;         
+  transform: translateY(-2px);
+}
+
+.footer a svg {
+  display: block;        
+}
+
+/* --END-- */
+
+
+
+
+
+ 
+
+
+
+
+

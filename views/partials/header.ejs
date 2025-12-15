@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Notes</title>
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Amarna:ital,wght@0,100..700;1,100..700&family=Amatic+SC:wght@400;700&family=Bebas+Neue&family=Dancing+Script:wght@400..700&family=Dosis:wght@200..800&family=Great+Vibes&family=Gruppo&family=Lexend+Exa:wght@100..900&family=Oswald:wght@200..700&family=Pacifico&family=Playwrite+AU+QLD:wght@100..400&family=Playwrite+NO:wght@100..400&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Saira:ital,wght@0,100..900;1,100..900&family=Shadows+Into+Light&family=Shojumaru&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Varela+Round&display=swap"
+      rel="stylesheet">
+  </head>
+
+  <body>
+    <header>
+      <div class="headerContainer">
+        <div class="headerTitle">
+          <h1>🎬 CINEMAAH SCRIBBLES</h1>
+          <p>my personal cinema diary</i></p>
+        </div>
+        <div class="headerOthers">
+          <div class="dropDownBox">
+            <form action="/sort" method="GET" class="sortForm">
+              <select name="sort" class="dropDown" onchange="this.form.submit()">
+              <option value="">Sort by</option>
+              <optgroup label="Year">
+                <option value="year-desc">Newest First</option>
+                <option value="year-asc">Oldest First</option>
+              </optgroup>
+              <optgroup label="Rating">
+                <option value="rating-desc">Highest Rated</option>
+                <option value="rating-asc">Lowest Rated</option>
+              </optgroup>
+              <optgroup label="Genre">
+                <option value="genre-action">Action</option>
+                <option value="genre-drama">Drama</option>
+                <option value="genre-comedy">Comedy</option>
+                <option value="genre-thriller">Thriller</option>
+                <option value="genre-romance">Romance</option>
+              </optgroup>
+              <optgroup label="Language">
+                <option value="lang-tamil">Tamil</option>
+                <option value="lang-hindi">Hindi</option>
+                <option value="lang-english">English</option>
+              </optgroup>
+              </select>
+            </form>
+  <% if (locals.session && session.loggedIn) { %>
+    <div class="searchBox">
+      <form action="/new" method="POST">
+        <input id="search" class="searchBar" type="text" name="movieName" placeholder="Add new movie">
+      </form>
+    </div>
+    <div>
+    <a href="/logout" class="adminButton">Logout</a>
+    </div>
+  <% } else { %>
+    <div>
+    <a href="/login" class="adminButton">Admin Login</a>
+    </div>
+  <% } %>
+
+          </div> 
+        </div>
+      </div>
+      <hr>
+    </header>

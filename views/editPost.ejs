@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Notes</title>
+    <link rel="stylesheet" href="/styles/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Amarna:ital,wght@0,100..700;1,100..700&family=Amatic+SC:wght@400;700&family=Bebas+Neue&family=Dancing+Script:wght@400..700&family=Dosis:wght@200..800&family=Great+Vibes&family=Gruppo&family=Lexend+Exa:wght@100..900&family=Oswald:wght@200..700&family=Pacifico&family=Playwrite+AU+QLD:wght@100..400&family=Playwrite+NO:wght@100..400&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Saira:ital,wght@0,100..900;1,100..900&family=Shadows+Into+Light&family=Shojumaru&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Varela+Round&display=swap"
+      rel="stylesheet">
+  </head>
+
+  <body>
+    <header>
+      <div class="headerContainer">
+        <div class="headerTitle">
+          <h1>🎬 CINEMAAH SCRIBBLES</h1>
+          <p>my personal cinema diary</i></p>
+        </div>
+      </div>
+      <hr>
+    </header>
+    <%if(locals.posterPath && locals.movieName && locals.movieId && locals.myThoughts && locals.rating){%>
+    <div class = "mainThoughtBox">
+      <div class = "thoughtContainer">
+    <div>
+<img
+  class="newImage"
+  src="<%= posterPath ? ('https://image.tmdb.org/t/p/w500' + posterPath) : '/images/fallback_poster.png' %>"
+  alt="<%= movieName %> poster"
+/>
+
+    </div>
+
+    <div class = "thoughtBox">
+    <form id="reviewForm" action="/edit" method="POST">
+      <input type="hidden" name ="movieId" value = "<%= movieId%>">
+      <h1> Whats your thoughts on <%=movieName%>?</h1>
+      <textarea class = "textarea" name = "thoughts" type = "text" placeholder="Write your review here👇"><%=myThoughts%></textarea>
+      <h1>Your Rating?</h1>
+            <div class="star-rating">
+<input type="radio" id="star5" name="rating" value="5"
+  <%= rating == 5 ? "checked" : "" %>>
+<label for="star5">★</label>
+
+<input type="radio" id="star4" name="rating" value="4"
+  <%= rating == 4 ? "checked" : "" %>>
+<label for="star4">★</label>
+
+<input type="radio" id="star3" name="rating" value="3"
+  <%= rating == 3 ? "checked" : "" %>>
+<label for="star3">★</label>
+
+<input type="radio" id="star2" name="rating" value="2"
+  <%= rating == 2 ? "checked" : "" %>>
+<label for="star2">★</label>
+
+<input type="radio" id="star1" name="rating" value="1"
+  <%= rating == 1 ? "checked" : "" %>>
+<label for="star1">★</label>
+
+            </div>
+    </form>
+    </div>
+  </div>
+        <div>
+          <button class="submitButton" form="reviewForm" type="submit">Save Changes</button>
+        </div>
+    </div>    
+  <%}%>
+ <%- include("partials/footer.ejs") %>
