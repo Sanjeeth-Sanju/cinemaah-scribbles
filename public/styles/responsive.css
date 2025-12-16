@@ -89,6 +89,10 @@
     .containerb p strong{
         font-size: 15px;
     }
+    .read-more-btn { 
+        font-size: 13px;
+    }
+
     /* Movie list page CSS */
     .image{
      height: 250px;
@@ -190,6 +194,9 @@
     }
     .containerb p strong{
         font-size: 12px;
+    }
+    .read-more-btn { 
+        font-size: 10px;
     }
 
     /* Movie list page CSS */
