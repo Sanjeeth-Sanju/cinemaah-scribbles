@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie Notes</title>
+
+  <link rel="stylesheet" href="public/styles/main.css">
+  <link rel="stylesheet" href="public/styles/responsive.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Amarna&family=Amatic+SC&family=Bebas+Neue&family=Dancing+Script&family=Dosis&family=Great+Vibes&family=Gruppo&family=Lexend+Exa&family=Oswald&family=Pacifico&family=Roboto&family=Varela+Round&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="headerContainer">
+      <div class="headerTitle">
+        <h1>🎬 CINEMAAH SCRIBBLES</h1>
+        <p>my personal cinema diary</p>
+      </div>
+    </div>
+    <hr>
+  </header>
+
+  <!-- MAIN REVIEW SECTION -->
+  <div class="mainThoughtBox">
+
+    <div class="thoughtContainer">
+
+      <!-- MOVIE POSTER -->
+      <div>
+        <img
+          class="newImage"
+          src="./public/images/fallback_poster.png"
+          alt="MOVIE_NAME movie poster">
+      </div>
+
+      <!-- REVIEW FORM -->
+      <div class="thoughtBox">
+        <form id="reviewForm" action="/review" method="POST">
+
+          <!-- Hidden fields -->
+          <input type="hidden" name="tmdbId" value="TMDB_ID">
+          <input type="hidden" name="movieName" value="MOVIE_NAME">
+          <input type="hidden" name="languageCode" value="LANG_CODE">
+          <input type="hidden" name="directorName" value="DIRECTOR_NAME">
+          <input type="hidden" name="year" value="YEAR">
+          <input type="hidden" name="genre" value="GENRE">
+          <input type="hidden" name="posterPath" value="POSTER_PATH">
+          <input type="hidden" name="languageName" value="LANGUAGE_NAME">
+
+          <h1>What’s your thoughts on MOVIE_NAME?</h1>
+
+          <textarea
+            class="textarea"
+            name="thoughts"
+            placeholder="Write your review here👇">
+          </textarea>
+
+          <h1>Your Rating?</h1>
+
+          <!-- STAR RATING -->
+          <div class="star-rating">
+
+            <input type="radio" id="star5" name="rating" value="5">
+            <label for="star5">★</label>
+
+            <input type="radio" id="star4" name="rating" value="4">
+            <label for="star4">★</label>
+
+            <input type="radio" id="star3" name="rating" value="3">
+            <label for="star3">★</label>
+
+            <input type="radio" id="star2" name="rating" value="2">
+            <label for="star2">★</label>
+
+            <input type="radio" id="star1" name="rating" value="1">
+            <label for="star1">★</label>
+
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- SUBMIT BUTTON -->
+    <div>
+      <button class="submitButton" form="reviewForm" type="submit">
+        Submit
+      </button>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <!-- footer content here -->
+  </footer>
+
+</body>
+</html>
