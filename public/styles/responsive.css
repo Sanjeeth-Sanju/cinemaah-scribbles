@@ -134,6 +134,11 @@
     .submitButton{
      font-size: 12px;
     }
+
+    /* Footer page CSS */
+    .footer p{
+        font-size: 12px;
+    }
 }
 
 
@@ -251,6 +256,11 @@
     }
     .login-box{
         max-width: 300px;
+    }
+
+        /* Footer page CSS */
+    .footer p{
+        font-size: 10px;
     }
 }
 
