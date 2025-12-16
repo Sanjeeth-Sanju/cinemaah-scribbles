@@ -11,13 +11,23 @@ const app = express();
 const port = process.env.PORT || 3000;
 const API_Token = process.env.TMDB_TOKEN;
 
-const db =new pg.Client({
-    user: process.env.DB_USER,
-    host: process.env.DB_HOST,
-    database: process.env.DB_DATABASE,
-    password: process.env.DB_PASSWORD,
-    port: process.env.DB_PORT,
-});
+const db = new pg.Client(
+  process.env.DATABASE_URL
+    ? {
+        connectionString: process.env.DATABASE_URL,
+        ssl: {
+          rejectUnauthorized: false  
+        }
+      }
+    : {
+        user: process.env.DB_USER,
+        host: process.env.DB_HOST,
+        database: process.env.DB_DATABASE,
+        password: process.env.DB_PASSWORD,
+        port: process.env.DB_PORT,
+      }
+);
+
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
@@ -27,19 +37,21 @@ app.use(session({
   saveUninitialized: false,
   cookie: { 
     maxAge: 1000 * 60 * 60 * 24 * 7, 
-    secure: false, // set to true if you deploy with HTTPS later
+    secure: process.env.NODE_ENV === "production",
     httpOnly: true
   }
 }));
 
 
-try{
-db.connect();
-console.log("Database connceted successfully");
-}catch(err){
-  console.error("Database connection failed", err.message);
-  process.exit(1);
-}
+(async () => {
+  try {
+    await db.connect();
+    console.log("Database connected successfully");
+  } catch (err) {
+    console.error("Database connection failed", err.message);
+    process.exit(1);
+  }
+})();
 
 function requireLogin(req, res, next) {
   if (req.session.loggedIn) {
