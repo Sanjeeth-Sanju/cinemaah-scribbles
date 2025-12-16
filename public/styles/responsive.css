@@ -98,6 +98,9 @@
         font-size: 15px;
         max-width: 150px; 
     }
+    .status-bar {
+        font-size: 25px;
+    }
 
     /* New post page & Edit post page CSS */
 
@@ -200,6 +203,9 @@
     }
     .container{
     grid-template-columns: 1fr 1fr ;
+    }
+    .status-bar {
+        font-size: 20px;
     }
     
     /* New post page & Edit post page CSS */

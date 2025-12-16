@@ -1,5 +1,6 @@
 <%- include("partials/header.ejs")%>
 <% if(locals.movieData){%>
+  <h3 class="status-bar">•Movies watched: <%=movieData.length%></h3>
     <%movieData.forEach((i)=>{%>
 <div class = "mainContainer"> 
     <div class = "containera">

@@ -174,11 +174,8 @@ app.get("/newMovie",requireLogin, async (req, res)=>{
      const movieName = apiCall2.data.title;
      const languageCode = apiCall2.data.original_language;
      const poster_path = apiCall2.data.poster_path;
-     let genre = " ";
-     apiCall2.data.genres.forEach((i)=>{
-        genre = genre + i.name + ", "
-     });
-     genre = genre.slice(0, -1);
+     const genre = apiCall2.data.genres.map(g => g.name).join(", ");
+
      const year = apiCall2.data.release_date? apiCall2.data.release_date.substring(0,4): "N/A";
      let directorName;
      let query2;
@@ -319,6 +316,52 @@ app.post("/delete", requireLogin, async (req, res)=>{
   res.redirect("/");
 });
 
+//Sort route
+app.get("/sort", async (req,res)=>{
+    const sort = req.query.sort;
+
+    let orderBy = "id DESC";
+    let whereClause = "";
+    let values= [];
+
+    if(!sort){
+      return res.redirect("/");
+    }
+    
+    if(sort === "year-desc"){
+      orderBy = "year DESC"
+    } else if(sort === "year-asc"){
+      orderBy = "year ASC"
+    } else if(sort === "rating-desc"){
+      orderBy = "my_rating DESC"
+    } else if(sort === "rating-asc"){
+      orderBy = "my_rating ASC"
+    } else if (sort.startsWith("genre-")){
+      const genre = sort.split("-")[1];
+      whereClause = "WHERE LOWER(genre) LIKE $1";
+      values.push( `%${genre}%`);
+    } else if (sort.startsWith("lang-")){
+      const lang = sort.split("-")[1];
+      whereClause = "WHERE LOWER(language_name)=$1";
+      values.push(lang);
+    }
+    let query;
+    try{
+      query =await db.query(`SELECT * FROM movie_list ${whereClause} ORDER BY ${orderBy}`, values);
+    } catch(error){
+      console.log("DB error", error.message);
+      return res.redirect("/?error=We're having trouble performing this action. Please try again later.");
+    }
+    const movieData = query.rows;
+    if(movieData.length===0){
+      return res.redirect("/?error=No movies found for this filter.");
+    }
+    res.render("index.ejs",{
+      movieData,
+      session: req.session,
+      errorMessage: null,
+    });
+});
 
 app.listen(port, ()=>{
     console.log(`Server running on port ${port}`);

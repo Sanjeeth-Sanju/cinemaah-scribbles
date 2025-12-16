@@ -232,6 +232,16 @@ hr {
     grid-template-rows: auto;
     justify-items: center
 }
+.status-bar {
+  font-family: "Amatic SC";
+  text-align:end;
+  margin-right: 25px;
+  margin-top: 10px;
+  margin-left: 0px;
+  margin-bottom: 0px;
+  font-size: 35px;
+}
+
 .moviesh3{
     font-family: "Roboto Condensed";
     font-size: 20px;
@@ -476,7 +486,6 @@ hr {
 
 
  
-
 
 
 
