@@ -18,11 +18,14 @@
   <body>
     <header>
       <div class="headerContainer">
+
         <div class="headerTitle">
           <h1>🎬 CINEMAAH SCRIBBLES</h1>
           <p>my personal cinema diary</i></p>
         </div>
+
         <div class="headerOthers">
+
           <div class="dropDownBox">
             <form action="/sort" method="GET" class="sortForm">
               <select name="sort" class="dropDown" onchange="this.form.submit()">
@@ -52,11 +55,13 @@
               </select>
             </form>
             </div> 
+
             <div class="searchBox">
                 <form action="/searchWithin" method="POST">
                 <input id="search" class="searchBar" type="text" name="movieName" placeholder="Search">
                </form>
             </div>
+            
   <% if (locals.session && session.loggedIn) { %>
     <div class="searchBox">
       <form action="/new" method="POST">
@@ -68,8 +73,9 @@
     <a href="/logout" class="adminButton">Logout</a>
     </div>
   <% } else { %>
+    </div>
     <div>
-    <a href="/login" class="adminButton">Admin Login</a>
+    <a href="/login" class="adminButton">Login</a>
     </div>
   <% } %>
       </div>
