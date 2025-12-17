@@ -51,11 +51,18 @@
               </optgroup>
               </select>
             </form>
+            </div> 
+            <div class="searchBox">
+                <form action="/searchWithin" method="POST">
+                <input id="search" class="searchBar" type="text" name="movieName" placeholder="Search">
+               </form>
+            </div>
   <% if (locals.session && session.loggedIn) { %>
     <div class="searchBox">
       <form action="/new" method="POST">
         <input id="search" class="searchBar" type="text" name="movieName" placeholder="Add new movie">
       </form>
+    </div>
     </div>
     <div>
     <a href="/logout" class="adminButton">Logout</a>
@@ -65,9 +72,6 @@
     <a href="/login" class="adminButton">Admin Login</a>
     </div>
   <% } %>
-
-          </div> 
-        </div>
       </div>
       <hr>
     </header>
