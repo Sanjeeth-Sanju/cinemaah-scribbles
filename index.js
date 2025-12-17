@@ -222,7 +222,7 @@ app.post("/review", requireLogin, async (req,res)=>{
     languageName,
   } = req.body;
      if(!thoughts || thoughts.trim().length===0 || !rating){
-      return res.redirect("/?error=Pour your thoughts and rate the selected movie");
+      return res.redirect("/?error=Please add your thoughts and rating before submitting");
      }
 
     let newInsertedMovie;
@@ -281,7 +281,7 @@ app.post("/edit", requireLogin, async (req, res)=>{
   const thoughts = req.body.thoughts;
   const rating= req.body.rating;
   if(!thoughts || thoughts.trim().length===0 || !rating){
-    return res.redirect("/?error=Pour your thoughts and rate the selected movie");
+    return res.redirect("/?error=Please add your thoughts and rating before submitting");
   }
   let query;
   try{
@@ -363,6 +363,29 @@ app.get("/sort", async (req,res)=>{
     });
 });
 
+app.post("/searchWithin", async (req,res)=>{
+  const movieName = req.body.movieName;
+  let query;
+  
+  try{
+    query = await db.query("SELECT * FROM movie_list WHERE LOWER(title) LIKE LOWER($1)",[`%${movieName}%`]);
+  }catch(error){
+    console.log("DB error", error.message); 
+    return res.redirect("/?error=We're having trouble performing this action. Please try again later.");
+  }
+  const movieData = query.rows;
+    if(movieData.length===0){
+      return res.redirect("/?error=I haven't watched this movie yet");
+  }
+    res.render("index.ejs",{
+      movieData,
+      session: req.session,
+      errorMessage: null,
+    });
+
+
+
+});
 app.listen(port, ()=>{
     console.log(`Server running on port ${port}`);
 });
