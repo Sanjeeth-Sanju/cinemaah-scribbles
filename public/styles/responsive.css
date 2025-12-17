@@ -397,16 +397,16 @@
 
     /* others */
     .modalBox{
-          max-width: 150px;
+          max-width: 300px;
     }
     .cancelBtn{
-        font-size: 8px;
+        font-size: 10px;
     }
     .deleteBtn{
-      font-size: 8px;
+      font-size: 10px;
     }
     .login-box{
-        max-width: 150px;
+        max-width: 300px;
     }
   #scrollTopBtn,
   #scrollBottomBtn {
