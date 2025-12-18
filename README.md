@@ -3,7 +3,7 @@
 
 ## Live Demo
 
-Check it out here: _www.cinemaahscriblles.live_
+Check it out here: _www.cinemaahscribbles.live_
 
 ## Features
 
